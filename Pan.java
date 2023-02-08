@@ -9,6 +9,8 @@ public class Pan implements Parameter {
         this.setValue(value);
     }
 
+    // Implements the setValue(int) method of the Parameter interface.
+    // Relies on the default implementation of isValid for checking.
     public void setValue(int value) {
         if (this.isValid(value)) {
             this.value = value;

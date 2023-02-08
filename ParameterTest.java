@@ -17,6 +17,11 @@ public class ParameterTest {
             System.out.println(p);
         }
 
+        // Set the volume to clamping. Then try an invalid value.
+        volume.setClamping(true);
+        volume.setValue(666);
+        System.out.println("clamped volume = " + volume.getValue());
+
         // Try to set pan to an invalid value.
         // Throws InvalidArgumentException.
         pan.setValue(1000);
