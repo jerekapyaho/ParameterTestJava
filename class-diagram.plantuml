@@ -1,0 +1,51 @@
+@startuml
+
+interface Parameter {
+    int getMinimumValue()
+    int getMaximumValue()
+    int getDefaultValue()
+    int getValue()
+    default boolean isValid(int value)
+    void setValue(int value)
+    String getName()
+}
+
+interface ClampedParameter extends Parameter {
+    boolean isClamping()
+    void setClamping(boolean c)
+}
+
+class Pan extends Object implements Parameter {
+    - int value
+    + Pan()
+    + Pan(int value)
+    + void setValue(int value)
+    + int getMinimumValue()
+    + int getMaximumValue()
+    + int getDefaultValue()
+    + int getValue()
+    + String getName()
+    + String toString()
+    + boolean equals(Object object)
+} 
+
+class Volume extends Object implements ClampedParameter {
+    - int value
+    - boolean clamping
+    + void setValue(int value)
+    + int getMinimumValue()
+    + int getMaximumValue()
+    + int getDefaultValue()
+    + int getValue()
+    + String getName()
+    + String toString()
+    + boolean equals(Object object)
+    + boolean isClamping()
+    + void setClamping(boolean c)
+}
+
+class ParamTest extends Object {
+    + void main(String[] args)
+}
+
+@enduml
